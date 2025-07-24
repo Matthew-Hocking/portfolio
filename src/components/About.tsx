@@ -189,8 +189,9 @@ const About = () => {
               <motion.div className="space-y-4" variants={containerVariants}>
                 <h3 className="text-2xl font-bold text-white">Beyond Code</h3>
                 <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-3" variants={containerVariants}>
-                  {hobbies.map((hobby) => (
+                  {hobbies.map((hobby, hobbyIndex) => (
                     <motion.div
+                      key={hobbyIndex}
                       className="flex items-center space-x-3 p-3 bg-neutral-800 rounded-lg border border-neutral-700"
                       variants={skillVariants}
                       whileHover={{ scale: 1.02, backgroundColor: "#262626" }}

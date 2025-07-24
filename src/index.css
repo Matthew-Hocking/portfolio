@@ -12,7 +12,7 @@
 @layer base {
   html {
     @apply bg-neutral-800 text-neutral-50
-    scroll-smooth text-(--font-sans);
+    scroll-smooth font-sans;
   }
 }
 
