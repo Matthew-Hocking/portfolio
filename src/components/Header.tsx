@@ -31,7 +31,7 @@ const Header = () => {
           </div>
           <ul className="flex space-x-8">
             <li>
-              <a href="#about-me" className="underline-hover text-white/90 hover:text-white font-medium transition-colors drop-shadow-sm">
+              <a href="#about" className="underline-hover text-white/90 hover:text-white font-medium transition-colors drop-shadow-sm">
                 About Me
               </a>
             </li>
