@@ -2,7 +2,7 @@ import React from 'react'
 
 const Timeline = () => {
   return (
-    <div className='h-screen'>Timeline</div>
+    <div>Timeline</div>
   )
 }
 
