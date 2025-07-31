@@ -6,8 +6,8 @@ import {
   Hero,
   Projects,
   Skills,
-  Timeline,
-} from "./components";
+  // Timeline,
+} from "./blocks";
 
 function App() {
   return (
@@ -18,7 +18,8 @@ function App() {
         <Hero />
         <About />
         <Skills />
-        <Timeline />
+        {/* The Timeline block might not be necessary */}
+        {/* <Timeline /> */}
         <Projects />
         <Contact />
       </main>
