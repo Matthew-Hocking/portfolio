@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { easeInOut, motion } from "motion/react";
 
 const Hero = () => {
   const containerVariants = {
@@ -59,15 +59,44 @@ const Hero = () => {
     },
   };
 
+  const floatingVariants = {
+    float: {
+      y: [-6, 6, -6],
+      transition: { duration: 8, repeat: Infinity, ease: easeInOut },
+    },
+  };
+
   return (
     <section id="hero" className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-neutral-900">
+      <div className="absolute inset-0">
         {/* Floating orbs */}
         <motion.div
           className="absolute top-20 left-20 w-80 h-80 bg-purple-500/4 rounded-full blur-3xl"
         />
         <motion.div
           className="absolute bottom-32 right-32 w-96 h-96 bg-cyan-400/4 rounded-full blur-3xl"
+        />
+        <motion.div
+          className="absolute top-1/3 right-1/4 w-80 h-80 bg-indigo-500/3 rounded-full blur-3xl"
+          animate={floatingVariants.float}
+        />
+        <motion.div
+          className="absolute top-20 left-10 w-64 h-64 bg-purple-400/6 rounded-full blur-3xl"
+          animate={floatingVariants.float}
+        />
+        <motion.div
+          className="absolute bottom-32 left-1/3 w-80 h-80 bg-blue-500/4 rounded-full blur-3xl"
+          animate={{
+            ...floatingVariants.float,
+            transition: { ...floatingVariants.float.transition, delay: 1 },
+          }}
+        />
+        <motion.div
+          className="absolute top-1/5 right-10 w-48 h-48 bg-cyan-400/5 rounded-full blur-3xl"
+          animate={{
+            ...floatingVariants.float,
+            transition: { ...floatingVariants.float.transition, delay: 2 },
+          }}
         />
       </div>
 
@@ -81,7 +110,7 @@ const Hero = () => {
           <div className="space-y-8 text-center lg:text-left">
             <div className="space-y-4">
               <motion.p
-                className="text-lg sm:text-xl text-neutral-400 font-mono tracking-wide"
+                className="text-lg sm:text-xl text-neutral-400 tracking-wide"
                 variants={itemVariants}
               >
                 Hello, I'm
@@ -97,7 +126,7 @@ const Hero = () => {
                   }}
                 />
                 <motion.h1
-                  className="relative text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-display font-bold text-white leading-none"
+                  className="relative text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-none"
                   variants={nameVariants}
                 >
                   Matthew
@@ -106,7 +135,7 @@ const Hero = () => {
                 </motion.h1>
               </div>
               <motion.p
-                className="text-2xl sm:text-3xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 font-mono font-medium"
+                className="text-2xl sm:text-3xl lg:text-4xl font-sans text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 font-medium"
                 variants={itemVariants}
               >
                 Full Stack Developer
@@ -209,7 +238,7 @@ const Hero = () => {
         <rect x="7" y="2" width="10" height="20" rx="5" />
         <line x1="12" y1="6" x2="12" y2="10" />
       </svg>
-      <p className="text-sm font-mono">Scroll for more</p>
+      <p className="text-sm">Scroll for more</p>
     </motion.div>
     </section>
   );

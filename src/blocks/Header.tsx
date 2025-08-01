@@ -25,11 +25,11 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div>
-            <a href="#top" className="underline-hover text-xl font-bold text-white hover:text-gray-200 transition-colors drop-shadow-sm">
-              MH
+            <a href="#top" className="underline-hover text-md md:text-xl font-bold text-white hover:text-gray-200 transition-colors drop-shadow-sm">
+              Matthew
             </a>
           </div>
-          <ul className="flex space-x-8">
+          <ul className="flex space-x-8 text-xs md:text-[16px]">
             <li>
               <a href="#about" className="underline-hover text-white/90 hover:text-white font-medium transition-colors drop-shadow-sm">
                 About Me
@@ -40,11 +40,12 @@ const Header = () => {
                 Skills
               </a>
             </li>
-            <li>
+            {/* Taking our "My journey for the meantime" */}
+            {/* <li>
               <a href="#my-journey" className="underline-hover text-white/90 hover:text-white font-medium transition-colors drop-shadow-sm">
                 My Journey
               </a>
-            </li>
+            </li> */}
             <li>
               <a href="#projects" className="underline-hover text-white/90 hover:text-white font-medium transition-colors drop-shadow-sm">
                 Projects

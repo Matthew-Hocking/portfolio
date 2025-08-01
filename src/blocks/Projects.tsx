@@ -103,7 +103,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="relative py-20 md:py-32 bg-neutral-900 overflow-hidden"
+      className="relative py-20 md:py-32 overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0">
@@ -202,11 +202,11 @@ const Projects = () => {
                   <h4 className="text-lg font-semibold text-white">
                     Technologies
                   </h4>
-                  <div className="flex flex-wrap gap-2 font-mono">
+                  <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-sm bg-neutral-700/70 text-neutral-200 shadow-lg rounded-full border border-neutral-600/50"
+                        className="px-3 py-1 text-sm font-mono bg-neutral-700/70 text-neutral-200 shadow-lg rounded-full border border-neutral-600/50"
                       >
                         {tech}
                       </span>
