@@ -1,7 +1,6 @@
 import {
   About,
   Contact,
-  Footer,
   Header,
   Hero,
   Projects,
@@ -23,8 +22,6 @@ function App() {
         <Projects />
         <Contact />
       </main>
-
-      <Footer />
     </>
   );
 }
