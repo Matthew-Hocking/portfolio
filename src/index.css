@@ -5,14 +5,29 @@
 
 @theme {
   --font-sans: "Space Grotesk", sans-serif;
-  --font-display: "Roboto", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 
 @layer base {
   html {
-    @apply bg-neutral-800 text-neutral-50
-    scroll-smooth font-sans;
+    @apply bg-neutral-950 text-neutral-50
+    scroll-smooth font-roboto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-sans
+  }
+
+  button {
+    @apply font-mono
+  }
+
+  a {
+    @apply font-mono
   }
 }
 
