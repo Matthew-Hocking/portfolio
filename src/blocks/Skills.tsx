@@ -1,5 +1,47 @@
 import { useRef } from "react";
 import { easeInOut, easeOut, motion, useInView } from "motion/react";
+import type { SimpleIcon } from "simple-icons";
+import {
+  siHtml5,
+  siCss,
+  siJavascript,
+  siTypescript,
+  siReact,
+  siNextdotjs,
+  siTailwindcss,
+  siStorybook,
+  siVuedotjs,
+  siNodedotjs,
+  siPhp,
+  siSwagger,
+  siGraphql,
+  siPrisma,
+  siMysql,
+  siPostgresql,
+  siAlgolia,
+  siFirebase,
+  siSupabase,
+  siDatocms,
+  siGit,
+  siGithub,
+  siDocker,
+  siVercel,
+  siPython,
+  siFastapi,
+  siAstro,
+  siStoryblok,
+  siExpress,
+} from "simple-icons";
+
+interface Skill {
+  name: string;
+  icon: SimpleIcon | null;
+}
+
+interface SkillCategory {
+  title: string;
+  skills: Skill[];
+}
 
 const Skills = () => {
   const ref = useRef(null);
@@ -61,54 +103,111 @@ const Skills = () => {
     },
   };
 
-  const skillCategories = [
+  const iconVariants = {
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.2,
+        ease: easeOut,
+      },
+    },
+  };
+
+  const skillCategories: SkillCategory[] = [
     {
-      title: "Frontend Development",
-      color: "from-yellow-400/70 to-orange-500/70",
+      title: "Client-Side Technologies",
       skills: [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "TypeScript",
-        "React",
-        "Next.js",
-        "Tailwind CSS",
-        "Storybook",
-        "Vue"
+        { name: "HTML5", icon: siHtml5 },
+        { name: "CSS3", icon: siCss },
+        { name: "JavaScript", icon: siJavascript },
+        { name: "TypeScript", icon: siTypescript },
+        { name: "React", icon: siReact },
+        { name: "Vue.js", icon: siVuedotjs },
+        { name: "Tailwind CSS", icon: siTailwindcss },
+        { name: "Storybook", icon: siStorybook },
       ],
     },
     {
-      title: "Backend Development",
-      color: "from-blue-400/70 to-purple-500/70",
-      skills: ["Node.js", "PHP", "REST APIs", "GraphQL", "Prisma"],
+      title: "Server-Side & APIs",
+      skills: [
+        { name: "Node.js", icon: siNodedotjs },
+        { name: "Express", icon: siExpress },
+        { name: "PHP", icon: siPhp },
+        { name: "REST APIs", icon: siSwagger },
+        { name: "GraphQL", icon: siGraphql },
+        { name: "Next.js", icon: siNextdotjs },
+      ],
     },
     {
-      title: "Database & Search",
-      color: "from-green-400/70 to-teal-500/70",
-      skills: ["SQL", "PostgreSQL", "Algolia", "Firebase", "Supabase"],
+      title: "Data & Infrastructure",
+      skills: [
+        { name: "MySQL", icon: siMysql },
+        { name: "PostgreSQL", icon: siPostgresql },
+        { name: "Prisma", icon: siPrisma },
+        { name: "Firebase", icon: siFirebase },
+        { name: "Supabase", icon: siSupabase },
+        { name: "Algolia", icon: siAlgolia },
+      ],
     },
     {
-      title: "Content Management",
-      color: "from-pink-400/70 to-rose-500/70",
-      skills: ["DatoCMS", "Silverstripe", "StoryBlok"],
-    },
-    {
-      title: "DevOps & Version Control",
-      color: "from-indigo-400/70 to-cyan-500/70",
-      skills: ["Git", "GitHub", "Docker", "Vercel"],
+      title: "Content & Workflow",
+      skills: [
+        { name: "DatoCMS", icon: siDatocms },
+        { name: "Silverstripe", icon: null },
+        { name: "Storyblok", icon: siStoryblok },
+        { name: "Git", icon: siGit },
+        { name: "GitHub", icon: siGithub },
+        { name: "Docker", icon: siDocker },
+        { name: "Vercel", icon: siVercel },
+      ],
     },
     {
       title: "Currently Learning",
-      color: "from-violet-400/70 to-purple-500/70",
-      skills: ["Python", "FastAPI", "Astro"],
-      isLearning: true,
+      skills: [
+        { name: "Python", icon: siPython },
+        { name: "FastAPI", icon: siFastapi },
+        { name: "Astro", icon: siAstro },
+      ],
     },
   ];
+
+  const SimpleIcon = ({
+    icon,
+    name,
+    size = 40,
+  }: {
+    icon: SimpleIcon | null;
+    name: string;
+    size?: number;
+  }) => {
+    if (!icon) {
+      return (
+        <div
+          className="flex items-center justify-center text-white font-bold text-lg bg-neutral-600 rounded"
+          style={{ width: size, height: size }}
+        >
+          {name.charAt(0)}
+        </div>
+      );
+    }
+
+    return (
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill={`#${icon.hex}`}
+        className="transition-all duration-300"
+      >
+        <path d={icon.path} />
+      </svg>
+    );
+  };
 
   return (
     <section
       id="skills"
-      className="relative py-20 md:py-32 bg-neutral-900 overflow-hidden"
+      className="relative py-20 md:py-32 overflow-hidden"
     >
       <div className="absolute inset-0">
         <motion.div
@@ -139,7 +238,10 @@ const Skills = () => {
           animate={isInView ? "visible" : "hidden"}
           className="space-y-12"
         >
-          <motion.div className="text-center space-y-6" variants={skillVariants}>
+          <motion.div
+            className="text-center space-y-6"
+            variants={skillVariants}
+          >
             <div className="relative inline-block">
               <motion.div
                 className="absolute -inset-6 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-emerald-500/10 blur-2xl"
@@ -154,44 +256,53 @@ const Skills = () => {
                 Technical Skills
               </h2>
             </div>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 rounded-full mx-auto shadow-lg shadow-purple-500/50" />
+            <div className="w-24 h-1 bg-blue-500 rounded-full mx-auto" />
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+            className="flex flex-wrap justify-center gap-6"
             variants={containerVariants}
           >
             {skillCategories.map((category, categoryIndex) => (
               <motion.div
                 key={categoryIndex}
-                className="relative group"
+                className="relative group w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]"
                 variants={categoryVariants}
               >
                 <div className="relative p-6 bg-neutral-800/30 backdrop-blur-sm rounded-xl border border-neutral-700/50 overflow-hidden h-full">
-                  <div className="relative space-y-4">
+                  <div className="relative space-y-6">
                     <div className="flex items-center space-x-3">
-                      <h3 className="text-xl font-bold text-white font-mono group-hover:text-neutral-100 transition-colors">
+                      <h3 className="text-xl font-bold text-white group-hover:text-neutral-100 transition-colors">
                         {category.title}
                       </h3>
                     </div>
 
                     <motion.div
-                      className="flex flex-wrap gap-2"
+                      className="grid grid-cols-3 sm:grid-cols-4 gap-6"
                       variants={containerVariants}
                     >
                       {category.skills.map((skill, skillIndex) => (
-                        <motion.span
+                        <motion.div
                           key={skillIndex}
-                          className={`px-3 py-1.5 text-sm font-medium rounded-full border bg-neutral-700/70 border-neutral-600/50 text-white shadow-lg relative overflow-hidden group/skill`}
+                          className="flex flex-col items-center space-y-3 group/skill cursor-pointer"
                           variants={skillVariants}
-                          style={{
-                            textShadow: "0 1px 2px rgba(0, 0, 0, 0.3)",
-                          }}
+                          whileHover="hover"
                         >
-                          <span className="relative z-10 font-mono">
-                            {skill}
+                          <motion.div
+                            className="relative p-4 bg-neutral-700/50 backdrop-blur-sm rounded-lg border border-neutral-600/50 transition-all duration-300 group-hover/skill:bg-neutral-600/70 group-hover/skill:border-neutral-500/70"
+                            variants={iconVariants}
+                          >
+                            <SimpleIcon
+                              icon={skill.icon}
+                              name={skill.name}
+                              size={40}
+                            />
+                          </motion.div>
+
+                          <span className="text-xs text-neutral-300 text-center font-medium leading-tight">
+                            {skill.name}
                           </span>
-                        </motion.span>
+                        </motion.div>
                       ))}
                     </motion.div>
                   </div>
