@@ -26,7 +26,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div>
             <a href="#top" className="underline-hover text-md md:text-xl font-bold text-white hover:text-gray-200 transition-colors drop-shadow-sm">
-              Matthew
+              Matthew Hocking
             </a>
           </div>
           <ul className="flex space-x-8 text-xs md:text-[16px]">
