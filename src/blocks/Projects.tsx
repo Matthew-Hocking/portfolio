@@ -294,7 +294,8 @@ const Projects = () => {
               Interested in seeing more?
             </motion.p>
             <motion.a
-            href=""
+              href="https://github.com/Matthew-Hocking"
+              target="_blank"
               className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors"
               whileHover={{
                 scale: 1.02,
