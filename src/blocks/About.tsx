@@ -96,7 +96,7 @@ const experiences = [
 
   const interests = [
     "Songwriting",
-    "Weightlifing",
+    "Weightlifting",
     "Woodworking",
     "Hiking & Outdoors", 
     "Cooking",
