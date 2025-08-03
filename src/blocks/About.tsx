@@ -57,13 +57,50 @@ const About = () => {
     },
   };
 
+const experiences = [
+  {
+    title: "Full Stack Developer",
+    company: "Haunt Digital",
+    duration: "August 2022 - October 2024",
+    highlight: "Led replatforming project with 60% performance gains",
+    description: "Developed and maintained 10+ full stack applications for diverse clients ranging from small businesses to government organizations and international companies.\
+    Worked hands-on with a wide range of technologies and frameworks, adapting quickly to client-specific requirements and technical constraints.\
+    Collaborated in Agile teams while serving as primary technical liaison, translating complex business requirements into scalable solutions.",
+    achievements: [
+      "60% improvement in page loading speeds through strategic replatforming",
+      "Adapted to diverse tech stacks across multiple client projects",
+      "Direct client communication for technical scoping and requirement gathering",
+      "Cross-functional collaboration in sprint planning and project delivery",
+      "Delivered solutions for government, enterprise, and startup clients"
+    ]
+  }
+];
+
+  const strengths = [
+    {
+      icon: "⚡",
+      title: "Pressure-Tested",
+      description: "Hospitality taught me to deliver quality work when deadlines are tight and requirements are shifting."
+    },
+    {
+      icon: "🎯",
+      title: "User-Focused",
+      description: "Years of client-facing work means I build with real user needs and business goals in mind."
+    },
+    {
+      icon: "🔄",
+      title: "Adaptable",
+      description: "Career transition proves I can quickly learn new skills and excel in different environments."
+    }
+  ];
+
   const interests = [
-    "Music Production",
-    "Hiking & Outdoors",
-    "Fitness",
-    "Culinary Arts",
+    "Songwriting",
+    "Weightlifing",
     "Woodworking",
-    "Reading",
+    "Hiking & Outdoors", 
+    "Cooking",
+    "Reading"
   ];
 
   return (
@@ -94,182 +131,145 @@ const About = () => {
         />
       </div>
 
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start"
+          className="space-y-16"
         >
-          <motion.div
-            className="flex flex-col justify-start space-y-8"
+          {/* Header */}
+          <motion.div className="text-center space-y-4" variants={itemVariants}>
+            <div className="relative inline-block">
+              <motion.div
+                className="absolute -inset-6 bg-slate-500/5 blur-2xl"
+                animate={{ opacity: [0.3, 0.5, 0.3] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.h2
+                className="relative text-4xl sm:text-5xl font-bold text-white"
+                variants={itemVariants}
+              >
+                About Me
+              </motion.h2>
+            </div>
+            <motion.div
+              className="w-24 h-1 bg-blue-500 rounded-full mx-auto"
+              variants={itemVariants}
+            />
+          </motion.div>
+
+          {/* Main Story */}
+          <motion.div 
+            className="max-w-4xl mx-auto text-center space-y-6"
             variants={itemVariants}
           >
-            <motion.div variants={itemVariants} className="space-y-4">
-              <div className="relative inline-block">
+            <p className="text-xl text-neutral-200 leading-relaxed">
+              I'm a full stack developer with a unique background in hospitality and retail management. 
+              After years of leading teams and solving problems under pressure, I discovered 
+              my passion for building digital solutions and made the leap into development.
+            </p>
+          </motion.div>
+
+          {/* Experience Timeline */}
+          <motion.div variants={itemVariants} className="space-y-6">
+            <h3 className="text-2xl font-bold text-white text-center">Experience</h3>
+            <div className="max-w-4xl mx-auto space-y-6">
+              {experiences.map((exp, index) => (
                 <motion.div
-                  className="absolute -inset-6 bg-slate-500/5 blur-2xl"
-                  animate={{ opacity: [0.3, 0.5, 0.3] }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
+                  key={index}
+                  className="relative p-6 bg-neutral-800/30 backdrop-blur-sm rounded-xl border border-neutral-700/50 hover:border-neutral-600/50 transition-all duration-300"
+                  variants={skillVariants}
+                  whileHover={{
+                    backgroundColor: "rgba(38, 38, 38, 0.5)",
+                    scale: 1.02,
                   }}
-                />
-                <motion.h2
-                  className="relative text-4xl sm:text-5xl font-bold text-white"
-                  variants={itemVariants}
                 >
-                  About Me
-                </motion.h2>
-              </div>
-              <motion.div
-                className="w-24 h-1 bg-blue-500 rounded-full"
-                variants={itemVariants}
-              />
-            </motion.div>
+                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-3">
+                    <div>
+                      <h4 className="text-xl font-semibold text-white">{exp.title}</h4>
+                      <div className="flex items-center space-x-2 text-blue-400">
+                        <span className="font-medium">{exp.company}</span>
+                        <span className="text-neutral-500">•</span>
+                        <span className="text-neutral-400">{exp.duration}</span>
+                      </div>
+                    </div>
+                    <div className="mt-2 md:mt-0">
+                      <span className="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-sm rounded-full border border-blue-500/30">
+                        {exp.highlight}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-neutral-300 leading-relaxed">{exp.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
-            <motion.div variants={itemVariants} className="space-y-6">
-              <p className="text-lg text-neutral-300 leading-relaxed">
-                I transitioned into development from a career in hospitality
-                management driven by a desire to build, create, and solve
-                complex problems in an industry with limitless growth potential.
-              </p>
-
-              <p className="text-lg text-neutral-300 leading-relaxed">
-                During my 2+ years at{" "}
-                <a
-                  href="https://www.haunt.digital/"
-                  className="text-blue-400 underline font-roboto"
+          {/* Strengths Grid */}
+          <motion.div variants={itemVariants} className="space-y-6">
+            <h3 className="text-2xl font-bold text-white text-center">What I Bring</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {strengths.map((strength, index) => (
+                <motion.div
+                  key={index}
+                  className="p-6 bg-neutral-800/30 backdrop-blur-sm rounded-xl border border-neutral-700/50 hover:border-neutral-600/50 transition-all duration-300 text-center"
+                  variants={skillVariants}
+                  whileHover={{
+                    backgroundColor: "rgba(38, 38, 38, 0.5)",
+                    scale: 1.05,
+                  }}
                 >
-                  Haunt Digital
-                </a>
-                , I led a replatforming project, successfully migrating a
-                content-driven site to a modern tech stack.
-              </p>
+                  <div className="text-3xl mb-4">{strength.icon}</div>
+                  <h4 className="text-xl font-semibold text-white mb-3">{strength.title}</h4>
+                  <p className="text-neutral-300 leading-relaxed">{strength.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
-              <p className="text-lg text-neutral-300 leading-relaxed">
-                My years in hospitality management taught me to thrive under
-                pressure, manage competing priorities, and maintain strong
-                client relationships—skills that prove invaluable when
-                delivering complex technical projects on tight timelines.
-              </p>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <motion.button
-                className="px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors"
-                whileHover={{
-                  scale: 1.02,
-                }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-              >
-                Download Resume
-              </motion.button>
+          {/* Personal Interests */}
+          <motion.div variants={itemVariants} className="space-y-6">
+            <h3 className="text-2xl font-bold text-white text-center">What I love beyond code</h3>
+            <motion.div
+              className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto"
+              variants={containerVariants}
+            >
+              {interests.map((interest, index) => (
+                <motion.div
+                  key={index}
+                  className="p-4 bg-neutral-800/30 backdrop-blur-sm rounded-lg border border-neutral-700/50 hover:border-neutral-600/50 transition-all duration-300 text-center"
+                  variants={skillVariants}
+                  whileHover={{
+                    backgroundColor: "rgba(38, 38, 38, 0.5)",
+                    scale: 1.05,
+                  }}
+                >
+                  <span className="text-neutral-200 font-medium">{interest}</span>
+                </motion.div>
+              ))}
             </motion.div>
           </motion.div>
 
-          <div className="flex flex-col space-y-8">
-            <motion.div variants={containerVariants} className="space-y-6">
-              <motion.div className="space-y-4" variants={itemVariants}>
-                <h3 className="text-2xl font-bold text-white">What I Bring</h3>
-                <div className="space-y-3">
-                  <motion.div
-                    className="flex items-start space-x-3 p-6 bg-neutral-800/30 backdrop-blur-sm rounded-xl border border-neutral-700/50 hover:border-neutral-600/50 transition-colors"
-                    variants={skillVariants}
-                    whileHover={{
-                      backgroundColor: "rgba(38, 38, 38, 0.7)",
-                      scale: 1.02,
-                    }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="w-3 h-3 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-white mb-2">
-                        High-Pressure Performance
-                      </h4>
-                      <p className="text-neutral-300 leading-relaxed">
-                        Years in fast-paced hospitality taught me to deliver
-                        quality results under tight deadlines and changing
-                        requirements.
-                      </p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    className="flex items-start space-x-3 p-6 bg-neutral-800/30 backdrop-blur-sm rounded-xl border border-neutral-700/50 hover:border-neutral-600/50 transition-colors"
-                    variants={skillVariants}
-                    whileHover={{
-                      backgroundColor: "rgba(38, 38, 38, 0.7)",
-                      scale: 1.02,
-                    }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="w-3 h-3 bg-slate-400 rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-white mb-2">
-                        Client-Focused Mindset
-                      </h4>
-                      <p className="text-neutral-300 leading-relaxed">
-                        Extensive experience in client-facing roles means I
-                        build with the end user's needs and experience at the
-                        forefront.
-                      </p>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    className="flex items-start space-x-3 p-6 bg-neutral-800/30 backdrop-blur-sm rounded-xl border border-neutral-700/50 hover:border-neutral-600/50 transition-colors"
-                    variants={skillVariants}
-                    whileHover={{
-                      backgroundColor: "rgba(38, 38, 38, 0.7)",
-                      scale: 1.02,
-                    }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="w-3 h-3 bg-slate-300 rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-white mb-2">
-                        Multi-Tasking Mastery
-                      </h4>
-                      <p className="text-neutral-300 leading-relaxed">
-                        Proven ability to manage multiple projects and
-                        priorities simultaneously while maintaining attention to
-                        detail.
-                      </p>
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              <motion.div className="space-y-4" variants={itemVariants}>
-                <h3 className="text-2xl font-bold text-white">Beyond Code</h3>
-                <motion.div
-                  className="grid grid-cols-2 gap-3"
-                  variants={containerVariants}
-                >
-                  {interests.map((interest, index) => (
-                    <motion.div
-                      key={index}
-                      className="p-4 bg-neutral-800/30 backdrop-blur-sm rounded-lg border border-neutral-700/50 hover:border-neutral-600/50 transition-colors"
-                      variants={skillVariants}
-                      whileHover={{
-                        backgroundColor: "rgba(38, 38, 38, 0.5)",
-                        scale: 1.02,
-                      }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <span className="text-neutral-200 font-medium text-sm">
-                        {interest}
-                      </span>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </div>
+          {/* CTA */}
+          <motion.div className="text-center" variants={itemVariants}>
+            <motion.button
+              className="px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => {
+                window.open('/matthew-hocking-cv.pdf', '_blank');
+              }}
+            >
+              Download Resume 
+            </motion.button>
+          </motion.div>
         </motion.div>
       </div>
     </section>
