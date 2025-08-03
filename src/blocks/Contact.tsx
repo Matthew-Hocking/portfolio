@@ -266,8 +266,7 @@ const Contact: React.FC = () => {
             </div>
             <div className="w-24 h-1 bg-blue-500 rounded-full mx-auto" />
             <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
-              I'm always open to discussing new opportunities, interesting
-              projects, or just having a chat about development.
+              I'm always open to discussing new opportunities or just having a chat about development.
             </p>
           </motion.div>
 

@@ -113,7 +113,7 @@ const Hero = () => {
                 className="text-lg sm:text-xl text-neutral-400 tracking-wide"
                 variants={itemVariants}
               >
-                Hello, I'm
+                Hey there, I'm
               </motion.p>
               <div className="relative">
                 <motion.div
@@ -141,12 +141,13 @@ const Hero = () => {
                 Full Stack Developer
               </motion.p>
             </div>
-            <motion.p
+            {/* Don't like this blurb, lets figure it out later */}
+            {/* <motion.p
               className="text-lg text-neutral-300 max-w-lg mx-auto lg:mx-0 leading-relaxed"
               variants={itemVariants}
             >
               Bringing unique perspective from hospitality management to building modern web applications with clean, user-focused code.
-            </motion.p>
+            </motion.p> */}
           </div>
 
           <motion.div
@@ -155,7 +156,7 @@ const Hero = () => {
           >
             <div className="flex flex-col w-full max-w-sm space-y-4">
               <motion.a
-                href="#projects"
+                href="#skills"
                 className="relative w-full py-4 px-8 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg rounded-lg transition-colors block text-center cursor-pointer"
                 whileHover={{
                   scale: 1.02,
@@ -163,7 +164,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.98 }}
                 variants={itemVariants}
               >
-                <span className="relative z-10">View My Work</span>
+                <span className="relative z-10">View My Skills</span>
               </motion.a>
 
               <motion.a
