@@ -410,7 +410,7 @@ const Contact: React.FC = () => {
                     className={`w-full px-4 py-3 bg-neutral-950/30 border rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none ${
                       errors.message ? "border-red-500" : "border-neutral-600"
                     }`}
-                    placeholder="Tell me about your project or just say hello..."
+                    placeholder="Let me know why you're keen to connect..."
                     maxLength={1000}
                     required
                   />

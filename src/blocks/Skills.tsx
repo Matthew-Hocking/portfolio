@@ -31,6 +31,7 @@ import {
   siAstro,
   siStoryblok,
   siExpress,
+  siPostman,
 } from "simple-icons";
 
 interface Skill {
@@ -130,12 +131,13 @@ const Skills = () => {
     {
       title: "Server-Side & APIs",
       skills: [
+        { name: "Next.js", icon: siNextdotjs },
         { name: "Node.js", icon: siNodedotjs },
         { name: "Express", icon: siExpress },
         { name: "PHP", icon: siPhp },
         { name: "REST APIs", icon: siSwagger },
         { name: "GraphQL", icon: siGraphql },
-        { name: "Next.js", icon: siNextdotjs },
+        { name: "Postman", icon: siPostman },
       ],
     },
     {

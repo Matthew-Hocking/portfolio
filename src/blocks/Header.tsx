@@ -25,11 +25,11 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div>
-            <a href="#top" className="underline-hover text-md md:text-xl font-bold text-white hover:text-gray-200 transition-colors drop-shadow-sm">
-              Matthew Hocking
+            <a href="#top" className="underline-hover text-sm md:text-lg lg:text-xl font-bold text-white hover:text-gray-200 transition-colors drop-shadow-sm">
+              MH.
             </a>
           </div>
-          <ul className="flex space-x-8 text-xs md:text-[16px]">
+          <ul className="flex space-x-6 md:space-x-8 text-xs md:text-[16px]">
             <li>
               <a href="#about" className="underline-hover text-white/90 hover:text-white font-medium transition-colors drop-shadow-sm">
                 About Me
